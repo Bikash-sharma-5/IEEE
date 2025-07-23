@@ -1,6 +1,8 @@
 import React, { useState, useEffect , useRef} from 'react';
 import { BookOpen, Calendar, Users, Mail, MapPin, Star, Building, Link as LinkIcon, Home, FileText, Info, Phone, Menu, X, Ticket, Twitter, Linkedin, Facebook } from 'lucide-react';
 
+import { Link as ScrollLink } from "react-scroll";
+
 // --- MOCK ASSETS ---
 // In a real project, you would import these from your assets folder
 // e.g., import LogoAIT from './Assets/Logo-AIT.gif';
@@ -29,7 +31,7 @@ const conferenceInfo = {
   aitLogoUrl: LogoAIT,
   headerRightLogoUrl: LogoAWES,
   heroImageUrl: BirdViewAIT,
-  brochureLink: "https://drive.google.com/drive/folders/1cP5THaMcE3kiJKDuCVSDir7Uhquq1xsE", // Placeholder link
+  brochureLink: "https://drive.google.com/file/d/1cX-aAjIKxEsXVJoLzeFCCdjmooMaSIQc/view", // Placeholder link
   paperSubmissionLink: "https://easychair.org/cfp/ICNDIA2026"
 };
 
@@ -180,91 +182,217 @@ const Section = ({ id, title, children, className = '' }) => (
 
 
 
-    const Header = () => {
-        const [isOpen, setIsOpen] = useState(false);
-        const [isScrolled, setIsScrolled] = useState(false);
+    // const Header = () => {
+    //     const [isOpen, setIsOpen] = useState(false);
+    //     const [isScrolled, setIsScrolled] = useState(false);
     
-        useEffect(() => {
-            const handleScroll = () => {
-                setIsScrolled(window.scrollY > 10);
-            };
-            window.addEventListener('scroll', handleScroll);
-            return () => window.removeEventListener('scroll', handleScroll);
-        }, []);
+    //     useEffect(() => {
+    //         const handleScroll = () => {
+    //             setIsScrolled(window.scrollY > 10);
+    //         };
+    //         window.addEventListener('scroll', handleScroll);
+    //         return () => window.removeEventListener('scroll', handleScroll);
+    //     }, []);
     
-        const navLinks = [
-            { href: "#home", label: "Home", icon: <Home size={16} /> },
-            { href: conferenceInfo.brochureLink, label: "Brochure", icon: <FileText size={16} />, target: "_blank" },
-            { href: "#about", label: "About", icon: <Info size={16} /> },
-            { href: "#highlights", label: "Highlights", icon: <Star size={16} /> },
-            { href: "#papers", label: "Call for Papers", icon: <BookOpen size={16} /> },
-            { href: "#committee", label: "Committee", icon: <Users size={16} /> },
-            { href: "#registration", label: "Registration", icon: <Ticket size={16} /> },
-            { href: "#contact", label: "Contact Us", icon: <Phone size={16} /> },
-        ];
+    //     const navLinks = [
+    //         { href: "#home", label: "Home", icon: <Home size={16} /> },
+    //         { href: conferenceInfo.brochureLink, label: "Brochure", icon: <FileText size={16} />, target: "_blank" },
+    //         { href: "#about", label: "About", icon: <Info size={16} /> },
+    //         { href: "#highlights", label: "Highlights", icon: <Star size={16} /> },
+    //         { href: "#papers", label: "Call for Papers", icon: <BookOpen size={16} /> },
+    //         { href: "#committee", label: "Committee", icon: <Users size={16} /> },
+    //         { href: "#registration", label: "Registration", icon: <Ticket size={16} /> },
+    //         { href: "#contact", label: "Contact Us", icon: <Phone size={16} /> },
+    //     ];
     
-        return (
-            <header className={`sticky top-0 z-50 transition-all w-screen duration-300 ${isScrolled ? 'bg-blue-900/90 backdrop-blur-lg shadow-xl' : 'bg-blue-900'}`}>
-                <div className=" mx-auto px-4 ">
-                    {/* Top bar with logos and affiliation */}
-                    <div className="flex lg:justify-evenly justify-between items-center h-20 ">
-                        {/* Left Logo & Title */}
-                        <a href="#home" className="flex items-center space-x-3">
-                            <img src={conferenceInfo.aitLogoUrl} alt="AIT Logo" className="h-14 w-auto bg-white p-1 rounded-md shadow-sm object-cover" />
-                            <div className="hidden lg:flex  text-white">
-                                <span className="font-bold text-xl ">{conferenceInfo.longName}</span>
-                            </div>
-                        </a>
+    //     return (
+    //         <header className={`sticky top-0 z-50 transition-all w-screen duration-300 ${isScrolled ? 'bg-blue-900/90 backdrop-blur-lg shadow-xl' : 'bg-blue-900'}`}>
+    //             <div className=" mx-auto px-4 ">
+    //                 {/* Top bar with logos and affiliation */}
+    //                 <div className="flex lg:justify-evenly justify-between items-center h-20 ">
+    //                     {/* Left Logo & Title */}
+    //                     <a href="#home" className="flex items-center space-x-3">
+    //                         <img src={conferenceInfo.aitLogoUrl} alt="AIT Logo" className="h-14 w-auto bg-white p-1 rounded-md shadow-sm object-cover" />
+    //                         <div className="hidden lg:flex  text-white">
+    //                             <span className="font-bold text-xl ">{conferenceInfo.longName}</span>
+    //                         </div>
+    //                     </a>
     
-                        {/* Desktop Nav in the middle */}
-                        <nav className="hidden md:flex md:items-center md:justify-between ">
-                            {navLinks.map(link => (
+    //                     {/* Desktop Nav in the middle */}
+    //                     <nav className="hidden md:flex md:items-center md:justify-between ">
+    //                         {navLinks.map(link => (
+    //                             <a
+    //                                 key={link.label}
+    //                                 href={link.href}
+    //                                 target={link.target}
+    //                                 rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
+    //                                 className="flex items-center space-x-2 px-3 py-2 text-white/90 hover:text-white hover:bg-white/10 rounded-full transition-all duration-300"
+    //                             >
+    //                                 {link.icon}
+    //                                 <span className="text-md font-semibold">{link.label}</span>
+    //                             </a>
+    //                         ))}
+    //                     </nav>
+    
+    //                     {/* Right side: AWES Logo for desktop, Menu for mobile */}
+    //                     <div className="flex items-center space-x-4">
+    //                         <img src={conferenceInfo.headerRightLogoUrl} alt="AWES Logo" className="h-14 w-auto hidden md:block" />
+    //                         <div className="md:hidden">
+    //                             <button onClick={() => setIsOpen(!isOpen)} className="text-white focus:outline-none">
+    //                                 {isOpen ? <X size={30} /> : <Menu size={30} />}
+    //                             </button>
+    //                         </div>
+    //                     </div>
+    //                 </div>
+    //             </div>
+    
+    //             {/* Mobile Menu */}
+    //             <div className={`md:hidden absolute w-full bg-blue-900/95 backdrop-blur-lg transition-all duration-500 ease-in-out ${isOpen ? 'max-h-screen' : 'max-h-0'} overflow-hidden`}>
+    //                 <nav className="px-2 pt-2 pb-4 space-y-4 sm:px-3">
+    //                     {navLinks.map(link => (
+    //                         <a
+    //                             key={link.label}
+    //                             href={link.href}
+    //                             target={link.target}
+    //                             rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
+    //                             className="flex items-center space-x-4 px-3 py-3 text-white/90 hover:text-white hover:bg-white/10 rounded-md transition-colors duration-200 block"
+    //                             onClick={() => setIsOpen(false)}
+    //                         >
+    //                             {link.icon}
+    //                             <span className="font-medium">{link.label}</span>
+    //                         </a>
+    //                     ))}
+    //                 </nav>
+    //             </div>
+    //         </header>
+    //     );
+    // };
+
+
+const Header = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 10);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const navLinks = [
+        { to: "home", label: "Home", icon: <Home size={16} /> },
+        { href: conferenceInfo.brochureLink, label: "Brochure", icon: <FileText size={16} />, target: "_blank" },
+        { to: "about", label: "About", icon: <Info size={16} /> },
+        { to: "highlights", label: "Highlights", icon: <Star size={16} /> },
+        { to: "papers", label: "Call for Papers", icon: <BookOpen size={16} /> },
+        { to: "committee", label: "Committee", icon: <Users size={16} /> },
+        { to: "registration", label: "Registration", icon: <Ticket size={16} /> },
+        { to: "contact", label: "Contact Us", icon: <Phone size={16} /> },
+    ];
+
+    return (
+        <header className={`sticky top-0 z-50 transition-all w-screen duration-300 ${isScrolled ? 'bg-blue-900/90 backdrop-blur-lg shadow-xl' : 'bg-blue-900'}`}>
+            <div className="mx-auto px-4">
+                {/* Top bar with logos and affiliation */}
+                <div className="flex lg:justify-evenly justify-between items-center h-20">
+                    {/* Left Logo & Title */}
+                    <a href="#home" className="flex items-center space-x-3">
+                        <img src={conferenceInfo.aitLogoUrl} alt="AIT Logo" className="h-14 w-auto bg-white p-1 rounded-md shadow-sm object-cover" />
+                        <div className="hidden lg:flex text-white">
+                            <span className="font-bold text-xl">{conferenceInfo.longName}</span>
+                        </div>
+                    </a>
+
+                    {/* Desktop Nav */}
+                    <nav className="hidden md:flex md:items-center md:justify-between">
+                        {navLinks.map(link => {
+                            if (link.href) {
+                                return (
+                                    <a
+                                        key={link.label}
+                                        href={link.href}
+                                        target={link.target}
+                                        rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
+                                        className="flex items-center space-x-2 px-3 py-2 text-white/90 hover:text-white hover:bg-white/10 rounded-full transition-all duration-300"
+                                    >
+                                        {link.icon}
+                                        <span className="text-md font-semibold">{link.label}</span>
+                                    </a>
+                                );
+                            } else {
+                                return (
+                                    <ScrollLink
+                                        key={link.label}
+                                        to={link.to}
+                                        smooth={true}
+                                        duration={500}
+                                        offset={-80}
+                                        onClick={() => setIsOpen(false)}
+                                        className="flex items-center space-x-2 px-3 py-2 text-white/90 hover:text-white hover:bg-white/10 rounded-full transition-all duration-300 cursor-pointer"
+                                    >
+                                        {link.icon}
+                                        <span className="text-md font-semibold">{link.label}</span>
+                                    </ScrollLink>
+                                );
+                            }
+                        })}
+                    </nav>
+
+                    {/* Right: AWES Logo or Menu */}
+                    <div className="flex items-center space-x-4">
+                        <img src={conferenceInfo.headerRightLogoUrl} alt="AWES Logo" className="h-14 w-auto hidden md:block" />
+                        <div className="md:hidden">
+                            <button onClick={() => setIsOpen(!isOpen)} className="text-white focus:outline-none">
+                                {isOpen ? <X size={30} /> : <Menu size={30} />}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Mobile Menu */}
+            <div className={`md:hidden absolute w-full bg-blue-900/95 backdrop-blur-lg transition-all duration-500 ease-in-out ${isOpen ? 'max-h-screen' : 'max-h-0'} overflow-hidden`}>
+                <nav className="px-2 pt-2 pb-4 space-y-4 sm:px-3">
+                    {navLinks.map(link => {
+                        if (link.href) {
+                            return (
                                 <a
                                     key={link.label}
                                     href={link.href}
                                     target={link.target}
                                     rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
-                                    className="flex items-center space-x-2 px-3 py-2 text-white/90 hover:text-white hover:bg-white/10 rounded-full transition-all duration-300"
+                                    className="flex items-center space-x-4 px-3 py-3 text-white/90 hover:text-white hover:bg-white/10 rounded-md transition-colors duration-200 block"
+                                    onClick={() => setIsOpen(false)}
                                 >
                                     {link.icon}
-                                    <span className="text-md font-semibold">{link.label}</span>
+                                    <span className="font-medium">{link.label}</span>
                                 </a>
-                            ))}
-                        </nav>
-    
-                        {/* Right side: AWES Logo for desktop, Menu for mobile */}
-                        <div className="flex items-center space-x-4">
-                            <img src={conferenceInfo.headerRightLogoUrl} alt="AWES Logo" className="h-14 w-auto hidden md:block" />
-                            <div className="md:hidden">
-                                <button onClick={() => setIsOpen(!isOpen)} className="text-white focus:outline-none">
-                                    {isOpen ? <X size={30} /> : <Menu size={30} />}
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    
-                {/* Mobile Menu */}
-                <div className={`md:hidden absolute w-full bg-blue-900/95 backdrop-blur-lg transition-all duration-500 ease-in-out ${isOpen ? 'max-h-screen' : 'max-h-0'} overflow-hidden`}>
-                    <nav className="px-2 pt-2 pb-4 space-y-4 sm:px-3">
-                        {navLinks.map(link => (
-                            <a
-                                key={link.label}
-                                href={link.href}
-                                target={link.target}
-                                rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
-                                className="flex items-center space-x-4 px-3 py-3 text-white/90 hover:text-white hover:bg-white/10 rounded-md transition-colors duration-200 block"
-                                onClick={() => setIsOpen(false)}
-                            >
-                                {link.icon}
-                                <span className="font-medium">{link.label}</span>
-                            </a>
-                        ))}
-                    </nav>
-                </div>
-            </header>
-        );
-    };
+                            );
+                        } else {
+                            return (
+                                <ScrollLink
+                                    key={link.label}
+                                    to={link.to}
+                                    smooth={true}
+                                    duration={500}
+                                    offset={-80}
+                                    onClick={() => setIsOpen(false)}
+                                    className="flex items-center space-x-4 px-3 py-3 text-white/90 hover:text-white hover:bg-white/10 rounded-md transition-colors duration-200 block cursor-pointer"
+                                >
+                                    {link.icon}
+                                    <span className="font-medium">{link.label}</span>
+                                </ScrollLink>
+                            );
+                        }
+                    })}
+                </nav>
+            </div>
+        </header>
+    );
+};
+
     
 
 const HeroSection = () => (
@@ -546,20 +674,41 @@ const RegistrationSection = () => (
     <Section id="registration" title="Registration Details">
         <div className="max-w-4xl mx-auto overflow-x-auto">
             <div className="shadow-lg rounded-lg overflow-hidden">
-                <table className="w-full text-sm text-left text-gray-700">
+                <table className="w-full table-auto text-sm text-left text-gray-700">
                     <thead className="text-xs text-white uppercase bg-blue-800">
                         <tr>
-                            <th scope="col" className="px-6 py-3">Category</th>
-                            <th scope="col" className="px-6 py-3 text-center">IEEE Member</th>
-                            <th scope="col" className="px-6 py-3 text-center">Non-IEEE Member</th>
+                            <th
+                                scope="col"
+                                className="px-4 py-3 w-1/3 max-w-[150px] break-words"
+                            >
+                                Category
+                            </th>
+                            <th scope="col" className="px-4 py-3 text-center">
+                                IEEE Member
+                            </th>
+                            <th scope="col" className="px-4 py-3 text-center">
+                                Non-IEEE Member
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
                         {registrationDetails.map((item, index) => (
-                            <tr key={index} className="bg-white border-b hover:bg-gray-50">
-                                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">{item.category}</th>
-                                <td className="px-6 py-4 text-center">{item.ieeeMember}</td>
-                                <td className="px-6 py-4 text-center">{item.nonIeeeMember}</td>
+                            <tr
+                                key={index}
+                                className="bg-white border-b hover:bg-gray-50"
+                            >
+                                <th
+                                    scope="row"
+                                    className="px-4 py-4 font-medium text-gray-900 whitespace-normal break-words w-1/3 max-w-[150px]"
+                                >
+                                    {item.category}
+                                </th>
+                                <td className="px-4 py-4 text-center">
+                                    {item.ieeeMember}
+                                </td>
+                                <td className="px-4 py-4 text-center">
+                                    {item.nonIeeeMember}
+                                </td>
                             </tr>
                         ))}
                     </tbody>
@@ -568,6 +717,7 @@ const RegistrationSection = () => (
         </div>
     </Section>
 );
+
 
 const ContactSection = () => (
   <Section id="contact" title="Venue & Contact" className="bg-gray-50">
