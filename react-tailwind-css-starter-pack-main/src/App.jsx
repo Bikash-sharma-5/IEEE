@@ -11,6 +11,8 @@ import LogoAWES from './Assets/Logo-AWES.gif';
 import BirdViewAIT from './Assets/Bird-View-AIT.jpg';
 import LogoIEEE from './Assets/ieee.jpg'
 import LogoACM from './Assets/acm.jpeg'
+import ICNDIA from './Assets/FullLogo.jpg'
+import ICNDIA2 from './Assets/FullLogo_NoBuffer.jpg'
 import { motion } from 'framer-motion';
 import {  } from 'lucide-react';
 
@@ -32,7 +34,7 @@ const conferenceInfo = {
   headerRightLogoUrl: LogoAWES,
   heroImageUrl: BirdViewAIT,
   brochureLink: "https://drive.google.com/file/d/1cX-aAjIKxEsXVJoLzeFCCdjmooMaSIQc/view", // Placeholder link
-  paperSubmissionLink: "https://easychair.org/cfp/ICNDIA2026"
+  paperSubmissionLink: "https://cmt3.research.microsoft.com/User/Login "
 };
 
 const committee = {
@@ -41,7 +43,7 @@ const committee = {
   generalChair: { name: "Dr. Sangeeta Jadhav", title: "HOD IT" },
   generalChair1: { name: "Dr. Ashwini Sapkal" },
   generalCoChairs: [
-    { name: "Dr. Vaishali Sci/Engr Ingale", title: "" },
+    { name: "Prof. Vaishali Ingale", title: "" },
     { name: "Dr. Dipika Rajendra Birari", title: "" }
   ],
   organizingCommittee: {
@@ -159,7 +161,7 @@ const contact = {
 const aboutConferenceText = "International Conference on Nexus of Digitalization, Intelligence, and Applications (ICNDIA-2026) serves as a premier platform for researchers and practitioners to present and discuss the transformative impact of digital technologies and artificial intelligence across various sectors. Focusing on the convergence of these fields, the conference aims to foster collaboration and knowledge sharing, addressing both the opportunities and challenges of the digital transformation. Attendees will engage in insightful discussions, attend workshops, and network with leading experts, driving forward thinking solutions that harness the power of technology for societal advancement.";
 const aboutDepartmentText = "The Department of Information Technology was established in the year 2001 with an intake of 120 students. The department believes in shaping the students in such a manner that they are readily absorbed by the industry and other professional organizations. The department continues to conquer new frontiers of knowledge through quality research works, conferences, QIPs and FDPs, by promoting the Teaching Learning Process. The department is a pioneer in establishing ACM and NPTEL student branches.";
 const aboutAitText = "AIT was founded in 1994, as a result of the vision, and untiring efforts of Late Gen. B.C. Joshi PVSM, AVSM, ADC for the children of all ranks of the Indian Army. The lush green campus, its resilience and architectural splendor, and state of the art infrastructure, all provide vital ingredients for a delectable academic environment for the development of total quality engineers. AIT is ranked 139 in NIRF across India. AIT runs Undergraduate courses in Comp. Engg., IT, Mech, E&TC and Post Graduate course in Machine Design. All courses are affiliated to SPPU.";
-
+const acknowledgement = "The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support"
 // --- Reusable Components ---
 const Card = ({ children, className = '' }) => (
   <div className={`bg-white rounded-xl shadow-lg overflow-hidden h-full ${className}`}>
@@ -398,8 +400,11 @@ const Header = () => {
 const HeroSection = () => (
     <section id="home" className="scroll-mt-20">
         {/* This section contains the main title and hero image */}
-        <div className="bg-white pt-12 pb-6 text-center m-auto w-[70%]">
-            <p className="text-gray-600 font-bold pb-5">Department of Information Technology, AIT Pune Organises</p>
+        <div className="bg-white pt-12 pb-6 text-center m-auto w-[70%] flex flex-col items-center justify-center">
+            <div className=''>
+                <img src={ICNDIA2} className='h-24'/>
+            </div>
+            <p className="text-gray-600 font-bold pb-5 mt-5">Department of Information Technology, AIT Pune Organises</p>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase text-gray-800 mt-2 px-4 leading-tight ">
                 {conferenceInfo.title}
             </h1>
@@ -555,6 +560,10 @@ const CallForPapersSection = () => (
         >
           <LinkIcon className="mr-2" /> Submit Your Paper
         </a>
+      </div>
+
+      <div className='mt-8 w-[50%] mx-auto text-center bg-gray-50 p-8 rounded-lg'>
+        <p>{acknowledgement}</p>
       </div>
     </div>
   </Section>
