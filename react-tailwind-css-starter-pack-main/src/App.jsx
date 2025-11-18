@@ -9,10 +9,11 @@ import { Link as ScrollLink } from "react-scroll";
 import LogoAIT from './Assets/Logo-AIT.gif';
 import LogoAWES from './Assets/Logo-AWES.gif';
 import BirdViewAIT from './Assets/Bird-View-AIT.jpg';
-import LogoIEEE from './Assets/ieee.jpg'
-import LogoACM from './Assets/acm.jpeg'
+import LogoIEEE from './Assets/Screenshot 2025-10-30 024057.png'
+import LogoACM from './Assets/Screenshot 2025-10-30 023125.png'
 import ICNDIA from './Assets/FullLogo.jpg'
 import ICNDIA2 from './Assets/FullLogo_NoBuffer.jpg'
+import AITCM from './Assets/Screenshot 2025-10-30 022903.png'
 import { motion } from 'framer-motion';
 import {  } from 'lucide-react';
 
@@ -22,7 +23,7 @@ import {  } from 'lucide-react';
   
 // --- Data from Brochure (ICNDIA-2026) ---
 const conferenceInfo = {
-  title: "International Conference on Nexus of Digitalization, Intelligence and Applications",
+  title: "IEEE International Conference on Nexus of Digitalization, Intelligence and Applications",
   acronym: "ICNDIA-2026",
   longName: "ARMY INSTITUTE OF TECHNOLOGY",
   date: "18th and 19th Sept 2026",
@@ -33,22 +34,29 @@ const conferenceInfo = {
   aitLogoUrl: LogoAIT,
   headerRightLogoUrl: LogoAWES,
   heroImageUrl: BirdViewAIT,
-  brochureLink: "https://drive.google.com/file/d/1cX-aAjIKxEsXVJoLzeFCCdjmooMaSIQc/view", // Placeholder link
-  paperSubmissionLink: "https://cmt3.research.microsoft.com/User/Login "
+  brochureLink:  "https://drive.google.com/file/d/1cugpyEQ1qxsDIXM_pQe-EqL_n8eBOn3g/view?usp=drive_link",//"https://drive.google.com/file/d/1T10hYuw_JDv91pVFbBj7sIC52AGtExxr/view?usp=drive_link", // Placeholder link
+  paperSubmissionLink: "https://cmt3.research.microsoft.com/ICNDIA2026"
 };
 
 const committee = {
-  patron: { name: "Col MK Prasad", title: "Director" },
-  conferenceCommitteeChair: { name: "Dr B P Patil", title: "Principal" },
-  generalChair: { name: "Dr. Sangeeta Jadhav", title: "HOD IT" },
-  generalChair1: { name: "Dr. Ashwini Sapkal" },
-  generalCoChairs: [
-    { name: "Prof. Vaishali Ingale", title: "" },
-    { name: "Dr. Dipika Rajendra Birari", title: "" }
+  chiefHonoraryChair: { "name": "Maj Gen KK Chakrabarti", "title": "Chairman AIT" },
+  patrons: [
+    { "name": "Maj Gen Uday Shankar Sengupta (Retd.)", "title": "Director AIT" },
+    { "name": "Col MK Prasad (Retd.)", "title": "Joint Director AIT" }
   ],
+  convenors: [
+    { "name": "Dr. B. P. Patil", "title": "Principal AIT" },
+    { "name": "Dr. Amar Buchade", "title": "Chair IEEE Pune Section" }
+  ],
+  conferenceGeneralChair: { "name": "Dr. Mrs. Sangeeta Jadhav", "title": "HOD IT" },
+  conferenceChairs: [
+    { "name": "Dr. Ashwini Sapkal", "title": "" },
+    { "name": "Prof. Vaishali Sachin Ingale", "title": "" }
+  ],
+  conferenceCoChair: { "name": "Dr. Dipika Birari", "title": "" },
   organizingCommittee: {
-    publicationChair: "Dr. Rahul Desai",
-    programChair: "Dr. G M Phade",
+    technicalProgramChair: "Dr. Rahul Desai",
+    publicationChair: "Dr. G M Walunjkar",
     publicityChair: "Prof. Yuvraj Gholap",
     financeChair: "Dr. Rupali Bagate"
   },
@@ -101,25 +109,54 @@ const keyHighlights = [
 ];
 
 const paperTopics = [
-  "AI and Machine Learning", "Intelligent Transportation Systems", "Cloud and Fog Computing", "Computational Intelligence", "Data Analytics and Data Mining", "Data Science", "Mobile Technologies", "Natural Language Processing", "Quantum Computing", "Security and Privacy", "AR and VR", "Image Processing and Computer Vision", "Software Engineering"
+  "Digital Transformation and Innovation",
+  "Artificial Intelligence and Machine Learning",
+  "Internet of Things (IoT) and Smart Technologies",
+  "Human-Computer Interaction and Digital User Experience",
+  "Data Science, Analytics, and Big Data",
+  "Applications of Digitalization and Intelligence in Key Sectors",
+  "Digital Ethics, Security, and Governance",
+  "Deep Learning in Computer Vision and Natural Language Processing",
+  "Future Trends and Innovations in Defence Sector"
 ];
 
+
 const importantDates = [
-  { event: "Last Date for Receiving Full Paper", date: "13th Feb, 2026" },
-  { event: "Paper Acceptance Notification", date: "29th May, 2026" },
+  { event: "Last Date for Receiving Full Paper", date: "15th Jan, 2026" },
+  { event: "Intimation of Acceptance", date: "31st March, 2026" },
   { event: "Last Date for Camera Ready Copy", date: "30th June, 2026" },
-  { event: "Last Date of Registration", date: "30th July, 2026" },
+  { event: "Last Date of Registration", date: "15th July, 2026" },
   { event: "Conference Dates", date: "18th-19th Sept, 2026" },
 ];
 
 const registrationDetails = [
-    { category: "Student/Research Scholar", ieeeMember: "₹5600", nonIeeeMember: "₹7000" },
-    { category: "Academicians", ieeeMember: "₹6400", nonIeeeMember: "₹8000" },
-    { category: "Industry Persons", ieeeMember: "₹7200", nonIeeeMember: "₹9000" },
-    { category: "Conference Attendee", ieeeMember: "₹3200", nonIeeeMember: "₹4000" },
-    { category: "Extra Page Charges per Page", ieeeMember: "₹800", nonIeeeMember: "₹1000" },
-    { category: "Foreign Authors", ieeeMember: "$95", nonIeeeMember: "$120" }
+  {
+    category: "Academicians/Students",
+    earlyBird: { ieee: "Rs. 5000", nonIeee: "Rs. 5500" },
+    afterJuly: { ieee: "Rs. 6000", nonIeee: "Rs. 6500" },
+  },
+  {
+    category: "Industry Persons",
+    earlyBird: { ieee: "Rs. 6000", nonIeee: "Rs. 6500" },
+    afterJuly: { ieee: "Rs. 7000", nonIeee: "Rs. 7500" },
+  },
+  {
+    category: "Foreign Authors",
+    earlyBird: { ieee: "$95 (USD)", nonIeee: "$100 (USD)" },
+    afterJuly: { ieee: "$105 (USD)", nonIeee: "$110 (USD)" },
+  },
+  {
+    category: "Conference Attendee",
+    earlyBird: { ieee: "Rs. 1500", nonIeee: "Rs. 1800" },
+    afterJuly: { ieee: "Rs. 2000", nonIeee: "Rs. 2500" },
+  },
+  {
+    category: "Extra Page Charges per Page",
+    earlyBird: { ieee: "Rs. 800", nonIeee: "Rs. 1000" },
+    afterJuly: { ieee: "Rs. 800", nonIeee: "Rs. 1000" },
+  },
 ];
+
 
 const useOnScreen = (options) => {
   const ref = useRef(null);
@@ -150,11 +187,11 @@ const useOnScreen = (options) => {
 const contact = {
     name: "Prof. Yuvraj Gholap",
     phone: "9404751535",
-    name1: "Prof. Kavita Arakeri",
-    phone1: "8308136889",
+    name1: "Prof. Anjali Hudedamani",
+    phone1: "9172812015",
     emails: [
         "ygholap@aitpune.edu.in",
-        "kavitajadhav@aitpune.edu.in"
+        "anjalihudedamani@aitpune.edu.in"
     ]
 }
 
@@ -297,9 +334,18 @@ const Header = () => {
     return (
         <header className={`sticky top-0 z-50 transition-all w-screen duration-300 ${isScrolled ? 'bg-blue-900/90 backdrop-blur-lg shadow-xl' : 'bg-blue-900'}`}>
             <div className="mx-auto px-4">
+                 
                 {/* Top bar with logos and affiliation */}
                 <div className="flex lg:justify-evenly justify-between items-center h-20">
                     {/* Left Logo & Title */}
+                    <div className="absolute top-0 right-1 md:top-40 md:right-1">
+                      <a
+                        href="https://cmt3.research.microsoft.com/ICNDIA2026"
+                        className="bg-blue-200 text-blue-700 font-semibold px-5 flex py-2 rounded-full shadow-md hover:bg-blue-100 transition"
+                      >
+                        <LinkIcon className="mr-2" /> Submit Paper
+                      </a>
+                    </div>
                     <a href="#home" className="flex items-center space-x-3">
                         <img src={conferenceInfo.aitLogoUrl} alt="AIT Logo" className="h-14 w-auto bg-white p-1 rounded-md shadow-sm object-cover" />
                         <div className="hidden lg:flex text-white">
@@ -404,15 +450,21 @@ const HeroSection = () => (
             <div className=''>
                 <img src={ICNDIA2} className='h-24'/>
             </div>
-            <p className="text-gray-600 font-bold pb-5 mt-5">Department of Information Technology, AIT Pune Organises</p>
+            <p className="text-gray-600 font-bold pb-5 mt-5">Department of Information Technology, Army Institute of Technology, Pune Organises</p>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase text-gray-800 mt-2 px-4 leading-tight ">
                 {conferenceInfo.title}
             </h1>
             <p className="font-semibold text-2xl text-gray-700 mt-2">({conferenceInfo.acronym})</p>
 
             <div className='flex items-center justify-between w-screen max-h-max'>
-                  <div className='w-[30%] flex items-center justify-center'>
-                      <img src={LogoIEEE} className='h-20'/>
+                  <div className='w-[30%] flex flex-col items-center justify-center rounded-md border-2 border-black p-2'>
+                      <div className='bg-blue-400 max-w-max p-2 rounded-md mb-2 font-bold'>
+                        <p>TECHNICAL</p>
+                        <p>CO-SPONSOR</p>
+                      </div>
+                      <div className='flex items-center justify-center '>
+                        <img src={LogoIEEE} className='h-20'/>
+                      </div>
                   </div>
 
                   <div className='w-[40%]'>
@@ -421,8 +473,14 @@ const HeroSection = () => (
                       <p className="text-gray-500">({conferenceInfo.mode})</p>
                   </div>
 
-                  <div className='w-[30%] flex items-center justify-center'>
-                      <img src={LogoACM} className='h-20'/>
+                  <div className='w-[30%] flex flex-col items-center justify-center rounded-md border-2 border-black p-2'>
+                      <div className='bg-blue-400 max-w-max p-2 rounded-md mb-2 font-bold'>
+                        <p>COLLABORATION</p>
+                      </div>
+                      <div className='flex items-center justify-center '>
+                        <img src={LogoACM} className='h-20'/>
+                        <img src={AITCM} className='h-20 ml-4'/>
+                      </div>
                   </div>
             </div>
         </div>
@@ -495,7 +553,61 @@ const ImportantDatesTimeline = () => (
 
 const CallForPapersSection = () => (
   <Section id="papers" title="Call for Papers & Important Dates">
+
     <div className="flex flex-col w-[100%] mx-auto">
+      {/* ================== PAPERS INVITED SECTION ================== */}
+      <section className="py-12 bg-gradient-to-b from-blue-50 to-white">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <h2 className="text-xl md:text-xl font-bold text-blue-800 mb-8">
+            Papers are invited on (but not limited to) the following topics:
+          </h2>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
+            {/* Track 1 */}
+            <div className="bg-white shadow-lg rounded-2xl p-6 border-t-4 border-blue-600 hover:shadow-xl transition">
+              <h3 className="text-xl font-semibold text-blue-700 mb-4">Track 1: Digitalization</h3>
+              <ul className="list-disc pl-5 space-y-2 text-gray-700">
+                <li>Digital Transformation and Innovation</li>
+                <li>Human-Computer Interaction and Digital User Experience</li>
+                <li>Digital Ethics, Security, and Governance</li>
+              </ul>
+            </div>
+
+            {/* Track 2 */}
+            <div className="bg-white shadow-lg rounded-2xl p-6 border-t-4 border-indigo-600 hover:shadow-xl transition">
+              <h3 className="text-xl font-semibold text-indigo-700 mb-4">Track 2: Intelligence</h3>
+              <ul className="list-disc pl-5 space-y-2 text-gray-700">
+                <li>Artificial Intelligence and Machine Learning</li>
+                <li>Data Science, Analytics, and Big Data</li>
+                <li>Deep Learning in Computer Vision and Natural Language Processing</li>
+              </ul>
+            </div>
+
+            {/* Track 3 */}
+            <div className="bg-white shadow-lg rounded-2xl p-6 border-t-4 border-purple-600 hover:shadow-xl transition">
+              <h3 className="text-xl font-semibold text-purple-700 mb-4">Track 3: Applications</h3>
+              <ul className="list-disc pl-5 space-y-2 text-gray-700">
+                <li>Internet of Things (IoT) and Smart Technologies</li>
+                <li>Applications of Digitalization and Intelligence in Key Sectors</li>
+                <li>Future Trends and Innovations in Defense Sector</li>
+              </ul>
+            </div>
+
+            {/* Track 4 */}
+            <div className="bg-white shadow-lg rounded-2xl p-6 border-t-4 border-pink-600 hover:shadow-xl transition">
+              <h3 className="text-xl font-semibold text-pink-700 mb-4">
+                Track 4: Emerging Consumer Technologies
+              </h3>
+              <ul className="list-disc pl-5 space-y-2 text-gray-700">
+                <li>Health and Wellness Technologies for Consumers</li>
+                <li>Smart and Connected Devices for Everyday Life</li>
+                <li>AR, VR, and XR in Consumer Technologies</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Centered Timeline */}
       <div className="flex items-center justify-center">
         <ImportantDatesTimeline />
@@ -630,51 +742,88 @@ const CommitteeSection = () => (
           <p className="text-lg text-gray-600 mb-16 max-w-3xl mx-auto">Guiding the conference with expertise and dedication, our committee comprises leaders and innovators from academia and industry.</p>
           
           {/* Main Organizing Committee */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <AnimatedCard delay={0} className="md:col-span-2 lg:col-span-3">
-                  <Card className="bg-blue-100 border border-blue-200 p-5 hover:shadow-xl transition-shadow">
-                      <h3 className="text-xl font-bold text-indigo-800 mb-1">{committee.patron.title}</h3>
-                      <p className="text-gray-800 text-lg">{committee.patron.name}</p>
-                  </Card>
-              </AnimatedCard>
-              <AnimatedCard delay={200}>
-                   <Card className="bg-indigo-100 border border-indigo-200 p-5 hover:shadow-xl transition-shadow">
-                      <h3 className="text-xl font-bold text-indigo-800 mb-1">Conference Chair</h3>
-                      <p className="text-gray-800 text-lg">{committee.conferenceCommitteeChair.name}, {committee.conferenceCommitteeChair.title}</p>
-                  </Card>
-              </AnimatedCard>
-              <AnimatedCard delay={300}>
-                   <Card className="bg-indigo-100 border border-indigo-200 p-5 hover:shadow-xl transition-shadow">
-                      <h3 className="text-xl font-bold text-indigo-800 mb-1">General Chair</h3>
-                      <p className="text-gray-800 text-lg">{committee.generalChair.name}, {committee.generalChair.title}</p>
-                  </Card>
-              </AnimatedCard>
-              <AnimatedCard delay={300}>
-                   <Card className="bg-indigo-100 border border-indigo-200 p-5 hover:shadow-xl transition-shadow">
-                      <h3 className="text-xl font-bold text-indigo-800 mb-1">General Chair</h3>
-                      <p className="text-gray-800 text-lg">{committee.generalChair1.name}</p>
-                  </Card>
-              </AnimatedCard>
-              <AnimatedCard delay={150} className="md:col-span-2 lg:col-span-3">
-                  <Card className="bg-teal-100 border border-teal-200 p-5 hover:shadow-xl transition-shadow">
-                      <h3 className="text-xl font-bold text-teal-800 mb-1">General Co-Chairs</h3>
-                      <p className="text-gray-800 text-lg">{committee.generalCoChairs.map(c => c.name).join(' & ')}</p>
-                  </Card>
-              </AnimatedCard>
-              {Object.entries(committee.organizingCommittee).map(([role, person], index) => (
-                  <AnimatedCard key={role} delay={250 + index * 100}>
-                      <Card className="p-5 hover:shadow-xl transition-shadow h-full">
-                          <h3 className="text-lg font-bold text-gray-800 mb-1 capitalize">{role.replace(/([A-Z])/g, ' $1')}</h3>
-                          <p className="text-gray-600">{person}</p>
-                      </Card>
-                  </AnimatedCard>
-              ))}
-          </div>
+         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Patron-In-Chief (full width) */}
+            <AnimatedCard delay={0} className="col-span-1 md:col-span-2 lg:col-span-4">
+                <Card className="border p-5 hover:shadow-xl transition-shadow">
+                <h3 className="text-xl font-bold text-indigo-800 mb-1">Chief Honorary Chair</h3>
+                <p className="text-gray-800 text-lg">
+                    {committee.chiefHonoraryChair.name}, {committee.chiefHonoraryChair.title}
+                </p>
+                </Card>
+            </AnimatedCard>
+
+            {/* Patrons (2 cards, side by side) */}
+            {committee.patrons.map((p, index) => (
+                <AnimatedCard key={index} delay={150 + index * 100} className="col-span-2">
+                <Card className="border p-5 hover:shadow-xl transition-shadow h-full">
+                    <h3 className="text-xl font-bold text-indigo-800 mb-1">Honorary Chair</h3>
+                    <p className="text-gray-800 text-lg">{p.name}, {p.title}</p>
+                </Card>
+                </AnimatedCard>
+            ))}
+
+            {/* Convenors (2 cards, side by side) */}
+            {committee.convenors.map((c, index) => (
+                <AnimatedCard key={index} delay={200 + index * 100} className="col-span-2">
+                <Card className="border p-5 hover:shadow-xl transition-shadow h-full">
+                    <h3 className="text-xl font-bold text-indigo-800 mb-1">Convenor</h3>
+                    <p className="text-gray-800 text-lg">{c.name}, {c.title}</p>
+                </Card>
+                </AnimatedCard>
+            ))}
+
+            {/* Conference General Chair (full width) */}
+            <AnimatedCard delay={250} className="col-span-1 md:col-span-2 lg:col-span-4">
+                <Card className="border p-5 hover:shadow-xl transition-shadow">
+                <h3 className="text-xl font-bold text-indigo-800 mb-1">Conference General Chair</h3>
+                <p className="text-gray-800 text-lg">
+                    {committee.conferenceGeneralChair.name}, {committee.conferenceGeneralChair.title}
+                </p>
+                </Card>
+            </AnimatedCard>
+
+            {/* Conference Chairs (each 2 columns wide) */}
+            {committee.conferenceChairs.map((c, index) => (
+                <AnimatedCard key={index} delay={300 + index * 100} className="col-span-2">
+                <Card className="border p-5 hover:shadow-xl transition-shadow h-full">
+                    <h3 className="text-xl font-bold text-indigo-800 mb-1">Conference Chair</h3>
+                    <p className="text-gray-800 text-lg">
+                    {c.name}{c.title && `, ${c.title}`}
+                    </p>
+                </Card>
+                </AnimatedCard>
+            ))}
+
+            {/* Conference Co-Chair (1 column only) */}
+            <AnimatedCard delay={350} className="col-span-1">
+                <Card className="border p-5 hover:shadow-xl transition-shadow">
+                <h3 className="text-xl font-bold text-indigo-800 mb-1">Conference Co-Chair</h3>
+                <p className="text-gray-800 text-lg">
+                    {committee.conferenceCoChair.name}
+                    {committee.conferenceCoChair.title && `, ${committee.conferenceCoChair.title}`}
+                </p>
+                </Card>
+            </AnimatedCard>
+
+            {/* Organizing Committee (1 col each) */}
+            {Object.entries(committee.organizingCommittee).map(([role, person], index) => (
+                <AnimatedCard key={role} delay={400 + index * 100} className="col-span-1">
+                <Card className="border p-5 hover:shadow-xl transition-shadow h-full">
+                    <h3 className="text-lg font-bold text-gray-800 mb-1 capitalize">
+                    {role.replace(/([A-Z])/g, " $1")}
+                    </h3>
+                    <p className="text-gray-600">{person}</p>
+                </Card>
+                </AnimatedCard>
+            ))}
+        </div>
+
 
           {/* Other Committees */}
           <CommitteeList title="International Advisory Committee" members={committee.internationalAdvisory} />
           <CommitteeList title="National Advisory Committee" members={committee.nationalAdvisory} />
-          <CommitteeList title="Technical Programme Committee" members={committee.technicalProgramme} />
+          <CommitteeList title="Technical Advisory Committee" members={committee.technicalProgramme} />
       </div>
   </Section>
 );
@@ -682,52 +831,50 @@ const CommitteeSection = () => (
 
 
 const RegistrationSection = () => (
-    <Section id="registration" title="Registration Details">
-        <div className="max-w-4xl mx-auto overflow-x-auto">
-            <div className="shadow-lg rounded-lg overflow-hidden">
-                <table className="w-full table-auto text-sm text-left text-gray-700">
-                    <thead className="text-xs text-white uppercase bg-blue-800">
-                        <tr>
-                            <th
-                                scope="col"
-                                className="px-4 py-3 w-1/3 max-w-[150px] break-words"
-                            >
-                                Category
-                            </th>
-                            <th scope="col" className="px-4 py-3 text-center">
-                                IEEE Member
-                            </th>
-                            <th scope="col" className="px-4 py-3 text-center">
-                                Non-IEEE Member
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {registrationDetails.map((item, index) => (
-                            <tr
-                                key={index}
-                                className="bg-white border-b hover:bg-gray-50"
-                            >
-                                <th
-                                    scope="row"
-                                    className="px-4 py-4 font-medium text-gray-900 whitespace-normal break-words w-1/3 max-w-[150px]"
-                                >
-                                    {item.category}
-                                </th>
-                                <td className="px-4 py-4 text-center">
-                                    {item.ieeeMember}
-                                </td>
-                                <td className="px-4 py-4 text-center">
-                                    {item.nonIeeeMember}
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </Section>
+  <Section id="registration" title="Registration Details">
+    <div className="max-w-6xl mx-auto overflow-x-auto">
+      <div className="shadow-lg rounded-lg overflow-hidden">
+        <table className="w-full border text-sm text-center text-gray-800">
+          {/* Header */}
+          <thead>
+            <tr className="bg-blue-900/90 text-white text-lg font-bold">
+              <th colSpan={5} className="py-3">REGISTRATION DETAILS</th>
+            </tr>
+            <tr className="bg-blue-200 font-semibold">
+              <th rowSpan={2} className="border px-4 py-2">Registration Category</th>
+              <th colSpan={2} className="border px-4 py-2">
+                Early Bird Registration <br /> Before 30th June 2026
+              </th>
+              <th colSpan={2} className="border px-4 py-2">
+                Registration After 1st July 2026
+              </th>
+            </tr>
+            <tr className="bg-blue-100 font-semibold">
+              <th className="border px-4 py-2 ">IEEE Member</th>
+              <th className="border px-4 py-2 ">Non IEEE Member</th>
+              <th className="border px-4 py-2 ">IEEE Member</th>
+              <th className="border px-4 py-2 ">Non IEEE Member</th>
+            </tr>
+          </thead>
+
+          {/* Body */}
+          <tbody>
+            {registrationDetails.map((item, index) => (
+              <tr key={index} className="bg-white hover:bg-gray-50">
+                <td className="border px-4 py-2 font-medium">{item.category}</td>
+                <td className="border px-4 py-2">{item.earlyBird.ieee}</td>
+                <td className="border px-4 py-2">{item.earlyBird.nonIeee}</td>
+                <td className="border px-4 py-2">{item.afterJuly.ieee}</td>
+                <td className="border px-4 py-2">{item.afterJuly.nonIeee}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </Section>
 );
+
 
 
 const ContactSection = () => (
