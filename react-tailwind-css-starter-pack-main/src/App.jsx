@@ -110,9 +110,10 @@ const keyHighlights = [
   "Technical sessions on various topics related to computer science and informatics",
   "Keynote addresses by experts",
   "All accepted and presented papers will be submitted to IEEE for possible inclusion in the IEEE Xplore Digital Library",
-  "Publishing partner will assist IEEE publication standards",
-  "Pre-conference tutorials"
+  "Publishing partner will assist IEEE publication standards"
 ];
+
+const centeredHighlight = "Pre-conference tutorials";
 
 const paperTopics = [
   "Digital Transformation and Innovation",
@@ -347,6 +348,8 @@ const Header = () => {
                     <div className="absolute top-0 right-1 md:top-40 md:right-1">
                       <a
                         href="https://cmt3.research.microsoft.com/ICNDIA2026"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="bg-blue-200 text-blue-700 font-semibold px-5 flex py-2 rounded-full shadow-md hover:bg-blue-100 transition"
                       >
                         <LinkIcon className="mr-2" /> Submit Paper
@@ -759,13 +762,21 @@ const ImageGallery = () => {
 
 const KeyHighlightsSection = () => (
     <Section id="highlights" title="Key Highlights" className="bg-gray-50">
-        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-            {keyHighlights.map((highlight, index) => (
-                <div key={index} className="flex items-start p-4 bg-white rounded-lg shadow-sm">
-                    <Star className="w-5 h-5 text-yellow-500 mt-1 mr-4 flex-shrink-0" />
-                    <p className="text-gray-700">{highlight}</p>
+        <div className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                {keyHighlights.map((highlight, index) => (
+                    <div key={index} className="flex items-start p-4 bg-white rounded-lg shadow-sm">
+                        <Star className="w-5 h-5 text-yellow-500 mt-1 mr-4 flex-shrink-0" />
+                        <p className="text-gray-700">{highlight}</p>
+                    </div>
+                ))}
+            </div>
+            <div className="flex justify-center">
+                <div className="flex items-center justify-center p-6 bg-white rounded-lg shadow-sm w-full md:w-2/3 lg:w-1/2">
+                    <Star className="w-5 h-5 text-yellow-500 mr-4 flex-shrink-0" />
+                    <p className="text-gray-700 text-lg">{centeredHighlight}</p>
                 </div>
-            ))}
+            </div>
         </div>
     </Section>
 );
@@ -1060,16 +1071,37 @@ const CommitteeSection = () => (
             </AnimatedCard>
 
             {/* Organizing Committee (1 col each) */}
-            {Object.entries(committee.organizingCommittee).map(([role, person], index) => (
-                <AnimatedCard key={role} delay={400 + index * 100} className="col-span-1">
-                <Card className="border p-5 hover:shadow-xl transition-shadow h-full">
-                    <h3 className="text-lg font-bold text-gray-800 mb-1 capitalize">
-                    {role.replace(/([A-Z])/g, " $1")}
-                    </h3>
-                    <p className="text-gray-600">{person}</p>
-                </Card>
+            {Object.entries(committee.organizingCommittee)
+              .filter(([role]) => role !== 'financeChair')
+              .map(([role, person], index) => (
+                <AnimatedCard 
+                  key={role} 
+                  delay={400 + index * 100} 
+                  className="col-span-1"
+                >
+                  <Card className="border p-5 hover:shadow-xl transition-shadow h-full">
+                      <h3 className="text-lg font-bold text-gray-800 mb-1 capitalize">
+                      {role.replace(/([A-Z])/g, " $1")}
+                      </h3>
+                      <p className="text-gray-600">{person}</p>
+                  </Card>
                 </AnimatedCard>
-            ))}
+              ))}
+        </div>
+
+        {/* Finance Chair - Centered separately */}
+        <div className="flex justify-center mt-8">
+            <AnimatedCard 
+              delay={700} 
+              className="w-full max-w-sm"
+            >
+              <Card className="border p-5 hover:shadow-xl transition-shadow h-full">
+                  <h3 className="text-lg font-bold text-gray-800 mb-1 capitalize">
+                  Finance Chair
+                  </h3>
+                  <p className="text-gray-600">{committee.organizingCommittee.financeChair}</p>
+              </Card>
+            </AnimatedCard>
         </div>
 
 
