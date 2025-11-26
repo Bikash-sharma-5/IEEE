@@ -64,8 +64,8 @@ export default function App() {
       <main>
         <HeroSection />
         <AboutSection />
-        {/* <BrochureUnveilingSection />
-        <ImageGallery /> */}
+        <BrochureUnveilingSection />
+        <ImageGallery />
         <KeyHighlightsSection />
         <CallForPapersSection />
         <CommitteeSection />
