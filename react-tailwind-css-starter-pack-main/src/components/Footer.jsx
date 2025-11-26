@@ -1,5 +1,6 @@
 import React from 'react';
 import { Twitter, Linkedin, Facebook } from 'lucide-react';
+import ObfuscatedEmail from './common/ObfuscatedEmail';
 import { conferenceInfo, contact } from '../data/constants';
 
 const Footer = () => (
@@ -31,7 +32,7 @@ const Footer = () => (
           <address className="not-italic text-sm space-y-2">
             <p>{conferenceInfo.venue}</p>
             <p>
-              <a href={`mailto:${contact.emails[0]}`} className="hover:text-white">{contact.emails[0]}</a>
+              <ObfuscatedEmail email={contact.emails[0]} className="hover:text-white" />
             </p>
             <p>Phone: {contact.phone}</p>
           </address>

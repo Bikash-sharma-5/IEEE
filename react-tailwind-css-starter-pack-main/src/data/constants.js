@@ -25,7 +25,7 @@ export const conferenceInfo = {
   aitLogoUrl: LogoAIT,
   headerRightLogoUrl: LogoAWES,
   heroImageUrl: BirdViewAIT,
-  brochureLink: "https://drive.google.com/file/d/1cugpyEQ1qxsDIXM_pQe-EqL_n8eBOn3g/view?usp=drive_link",
+  brochureLink: "/Assets/ICNDIA-2026-Brochure.pdf",
   paperSubmissionLink: "https://cmt3.research.microsoft.com/ICNDIA2026"
 };
 

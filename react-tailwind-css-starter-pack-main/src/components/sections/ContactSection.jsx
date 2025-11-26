@@ -1,6 +1,7 @@
 import React from 'react';
 import { MapPin, Users, Mail } from 'lucide-react';
 import Section from '../common/Section';
+import ObfuscatedEmail from '../common/ObfuscatedEmail';
 import { conferenceInfo, contact } from '../../data/constants';
 
 const ContactSection = () => (
@@ -24,7 +25,7 @@ const ContactSection = () => (
             <Mail className="w-7 h-7 text-blue-600 mt-1 mr-4 flex-shrink-0" />
             <div>
               {contact.emails.map(email => (
-                <a key={email} href={`mailto:${email}`} className="block hover:text-blue-700">{email}</a>
+                <ObfuscatedEmail key={email} email={email} />
               ))}
             </div>
           </div>
