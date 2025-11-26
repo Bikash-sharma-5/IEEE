@@ -25,7 +25,7 @@ src/
 ├── data/
 │   └── constants.js         # All static data and configurations
 ├── hooks/
-│   └── useOnScreen.js       # Custom hook for intersection observer
+│   └── useOnScreen.js       # Custom hook for   intersection observer
 ├── Assets/                  # Images and static assets
 ├── App.jsx                  # Main app component
 └── index.js                 # App entry point
